@@ -1,0 +1,349 @@
+Instructor: All right.
+
+So, in the last video, we installed Node,
+
+and then I just disappeared.
+
+We didn't do anything, which I, now,
+
+I feel bad about because I didn't tell you
+
+how to get out of here.
+
+If you try and type anything in here,
+
+we're now in a different world where our terminal commands
+
+don't actually mean anything.
+
+Like ls is, it's not gonna do anything for me.
+
+To get out of here, you can press Control + C twice.
+
+So I pressed it once, and it tells me press it again,
+
+or Control + D, or you can type .exit.
+
+All right, so now we're out of it.
+
+So, what was that that we were just in?
+
+That is something called the Node REPL.
+
+Now, if you remember very early on,
+
+I talked about this term, REPL, R-E-P-L,
+
+read, evaluate, print, loop.
+
+The JavaScript console in our browser is a REPL.
+
+I can type some code in, it will read it, evaluate it,
+
+and then print something back to me and then it loops.
+
+It continues going.
+
+Unlike how we typically execute a script,
+
+where it just runs one time, right?
+
+We include a script, an HTML file.
+
+We open that in the browser, it executes it and it's done.
+
+REPL is continuing to just listen
+
+and wait for us to type something in
+
+so that it can evaluate it back.
+
+So we typically use a REPL.
+
+If I just type Node again and hit Enter.
+
+We typically use this to debug
+
+or to play around with new features
+
+or new tools that we've installed.
+
+But we can type JavaScript in here.
+
+We are now in a world of JavaScript.
+
+Think of this as the Node equivalent
+
+of the JavaScript console in Chrome.
+
+It's the same concept.
+
+Now we do have some other features.
+
+For example, it's telling me
+
+type .help for more information.
+
+And now it gives me some commands that I can do.
+
+For example, .exit.
+
+We've got .save where I can save whatever
+
+I've done in here to a file.
+
+.break, .clear.
+
+Okay?
+
+So there's these different commands
+
+that we don't have access to in the JavaScript console,
+
+but let's just try some basic stuff.
+
+This is good old JavaScript, 1 + 2,
+
+We get 3, right?
+
+How about hello plus world,
+
+just what we expect, right?
+
+We still have strings, we've got numbers.
+
+This is JavaScript.
+
+Now it's not exactly the same.
+
+We don't have certain things that we do have in the browser.
+
+For example, we don't have any of the DOM APIs.
+
+We don't have the window, we don't have the document.
+
+Those are all browser-specific concepts.
+
+So if I try typing document, nope,
+
+document.getElementByID, document dot anything.
+
+It's not there.
+
+Window.
+
+The window does not exist either.
+
+Now, if you remember in the browser,
+
+the window is the global object.
+
+It's like the top level of everything.
+
+It represents a browser window, hence the term window.
+
+And it's where a whole bunch of functions,
+
+and things like alert, are stored or where they live.
+
+It's a global scope.
+
+We do have a global scope here,
+
+but it's not called a window.
+
+Instead, it's actually called global.
+
+And if I type global, I can actually see it here.
+
+So, this is where things like setTimeout, setInterval,
+
+all those functions live.
+
+But just like with JavaScript in the browser
+
+where I could just call setTimeout, right?
+
+I didn't have to do window.setTimeout.
+
+I'll actually call it here.
+
+I can do the same thing.
+
+I'll just call setTimeout.
+
+I don't need global.setTimeout.
+
+But let's do a function here that just console.log.
+
+So we do have console.log,
+
+even though our console is different.
+
+console.log("HELLO!!!!").
+
+And we'll do that after how long?
+
+Maybe three seconds.
+
+And there we go.
+
+HELLO prints out after three seconds.
+
+Okay, so just a quick example.
+
+I did not have to do global.setTimeout,
+
+even though that's technically where it lives, right?
+
+I can do global here.
+
+If I type global.setTimeout.
+
+I do have autocomplete, by the way.
+
+Hit Tab, right?
+
+So I didn't need that.
+
+Anyway, global is the global object.
+
+It's what everything lives inside of.
+
+It's the the top-level bubble that we live inside
+
+of when we're using Node.
+
+So those are some important distinctions.
+
+The syntax is pretty much all exactly the same,
+
+but we don't have any browsery stuff,
+
+but we do have a bunch of other stuff
+
+that doesn't exist in browsers.
+
+There are built-in modules
+
+that help us do things like interact with files
+
+and folders in the operating system.
+
+Those are things we can't do in the browser.
+
+We're not gonna go into them in this video,
+
+but just know that there are things that we do get in Node
+
+that we don't get in the browser.
+
+So that's the REPL.
+
+It's just a place we can open up at any point.
+
+We can close with .exit,
+
+open it with just node.
+
+Type your JavaScript code in here
+
+just like you would in the Chrome console.
+
+So just like we don't use the Chrome console
+
+to type full applications,
+
+we use it to play around or try new things out
+
+or in educational context.
+
+Same idea here with the Node REPL.
+
+All right, so .exit or Ctrl + D, oops, I didn't hit it.
+
+There we go.
+
+Or Control + C two times in a row.
+
+Three different ways to quit. Okay?
+
+
+kunj5@DESKTOP-6GU8P5E MINGW64 ~
+$ node
+Welcome to Node.js v18.16.0.
+Type ".help" for more information.
+> ls
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+>
+
+> .help
+.break    Sometimes you get stuck, this gets you out
+.clear    Alias for .break
+.editor   Enter editor mode
+.exit     Exit the REPL
+.help     Print this help message
+.load     Load JS from a file into the REPL session
+.save     Save all evaluated commands in this REPL session to a file
+
+Press Ctrl+C to abort current expression, Ctrl+D to exit the REPL
+> 1 + 2
+3
+> "hello" + "world"
+'helloworld'
+> document
+Uncaught ReferenceError: document is not defined
+> window
+Uncaught ReferenceError: window is not defined
+> global
+<ref *1> Object [global] {
+  global: [Circular *1],
+  queueMicrotask: [Function: queueMicrotask],
+  clearImmediate: [Function: clearImmediate],
+  setImmediate: [Function: setImmediate] {
+    [Symbol(nodejs.util.promisify.custom)]: [Getter]
+  },
+  structuredClone: [Function: structuredClone],
+  clearInterval: [Function: clearInterval],
+  clearTimeout: [Function: clearTimeout],
+  setInterval: [Function: setInterval],
+  setTimeout: [Function: setTimeout] {
+    [Symbol(nodejs.util.promisify.custom)]: [Getter]
+  },
+  atob: [Function: atob],
+  btoa: [Function: btoa],
+  performance: Performance {
+    nodeTiming: PerformanceNodeTiming {
+      name: 'node',
+      entryType: 'node',
+      startTime: 0,
+      duration: 39326.6827000007,
+      nodeStart: 3.00690000038594,
+      v8Start: 6.838100000284612,
+      bootstrapComplete: 32.68670000042766,
+      environment: 16.73600000049919,
+      loopStart: 54.08449999988079,
+      loopExit: -1,
+      idleTime: 38941.9856
+    },
+    timeOrigin: 1746495035567.035
+  },
+  fetch: [AsyncFunction: fetch]
+}
+> setTimeout(() => console.log("HELLO!!!!"), 3000)
+Timeout {
+  _idleTimeout: 3000,
+  _idlePrev: [TimersList],
+  _idleNext: [TimersList],
+  _idleStart: 112302,
+  _onTimeout: [Function (anonymous)],
+  _timerArgs: undefined,
+  _repeat: null,
+  _destroyed: false,
+  [Symbol(refed)]: true,
+  [Symbol(kHasPrimitive)]: false,
+  [Symbol(asyncId)]: 411,
+  [Symbol(triggerId)]: 5
+}
+> HELLO!!!!
+

@@ -1,0 +1,548 @@
+Instructor: Hey, everyone.
+
+Big moment here.
+
+This is actually deserving of a drum roll.
+
+Okay, just wait for it to finish.
+
+Come on.
+
+And there we go.
+
+Node.js, it's time to talk about Node.
+
+It's been a long time coming.
+
+This is the official introduction to Node in this video.
+
+So we're gonna spend some time just setting the stage,
+
+talking about what Node is, what it isn't,
+
+why we're learning it,
+
+and then we'll actually learn some stuff.
+
+So, here we go.
+
+Node.js, a topic that a lot of students look forward to
+
+or have some misconceptions about.
+
+It's not scary, it's really just JavaScript, as you'll see.
+
+I'm trying out some new slides here.
+
+I'm not sure if I like those animations.
+
+So, let's begin with the obvious question.
+
+What exactly is Node?
+
+Well, technically, it's a JavaScript runtime.
+
+Now, if we go back to some early part of this course,
+
+when we introduced the idea of JavaScript
+
+and how there is not really one official, you know,
+
+JavaScript that we download, we don't install JavaScript,
+
+and that actually there's a specification,
+
+this ECMAScript specification
+
+that browsers then go implement.
+
+So it's the job of a browser to follow the rules
+
+and implement the language.
+
+So, for a long time,
+
+that was the only place we would run JavaScript
+
+and then write and execute.
+
+It would be in a browser, whether it's Firefox or Chrome
+
+or Safari or Internet Explorer, hopefully not,
+
+but maybe, they're all browsers,
+
+that's where we were running our code.
+
+So that was great for web applications, right?
+
+And doing browsery stuff.
+
+But there's so much more that we could do
+
+with other languages like Python or Ruby,
+
+where we could write, you know, create web servers,
+
+we can interact with file systems,
+
+we can make command line tools, we can make video games.
+
+These are things that we couldn't really do with JavaScript
+
+until the advent of Node.js.
+
+So Node is an implementation of JavaScript
+
+that runs outside of the browser.
+
+So we can run JavaScript code
+
+without ever opening a browser,
+
+without even having a browser on our machine.
+
+Now that doesn't mean that we can do exactly
+
+the same stuff, right?
+
+If we don't have a browser,
+
+we're not gonna be able to manipulate the DOM
+
+or deal with, I don't know,
+
+user inputs and events and all of that.
+
+But aside from those differences, and we'll go into them,
+
+it's just JavaScript that runs outside of the browser.
+
+So we can use the same syntax that you already know
+
+to write code that runs on the server side.
+
+And there are a lot of applications for this.
+
+There's a lot of reasons to do this.
+
+So, just a bit of history here.
+
+I actually always assumed
+
+that Node was the first implementation of JavaScript
+
+that ran outside of the browser.
+
+That's not the case.
+
+Apparently, 13 years before the introduction of Node,
+
+there was something called Netscape's Livewire Pro Web,
+
+and this was a server-side implementation of JavaScript.
+
+I just had never heard of it.
+
+So, in 2009, this guy Ryan Dahl created Node.js,
+
+and it really took off a couple years later, I'd say,
+
+2011 or '12 is where it really started
+
+to get a lot of attention.
+
+And these days, it's incredibly popular.
+
+Here are a couple of charts just from Google Images.
+
+You can see around 2011 or so is when Node,
+
+it's this purple line,
+
+really started to go crazy, but it had been out since 2009.
+
+Here's a couple other examples.
+
+This one's from 2017.
+
+You can see the growth of Node being very steady,
+
+it's the red line here,
+
+as other languages and tools have come and gone.
+
+Here's another example.
+
+This is showing something slightly different.
+
+This is the number of modules.
+
+These are sort of like add-ons, packages,
+
+tools people have developed.
+
+And you can see that Node, which is the red line here,
+
+is growing very, very quickly.
+
+And not only is it growing quickly
+
+and faster than the others,
+
+it also just has far more packages available.
+
+So that means there's a very strong
+
+community around Node as well.
+
+And then here's just another sort of data point
+
+or a couple of data points
+
+from the Stack Overflow developer survey
+
+from last year, 2019.
+
+We can see that most popular technologies
+
+has JavaScript up top.
+
+Probably no surprise there.
+
+And Node is considered JavaScript, right?
+
+It's the exact same language for writing JavaScript.
+
+But this is kind of misleading
+
+because it doesn't actually tell us, you know,
+
+how much Node is used versus just client-side JavaScript
+
+in the browser, which is pretty ubiquitous.
+
+But further down, if we look at things
+
+like other frameworks, libraries, and tools,
+
+whatever that is, Node is right up top.
+
+50% of respondents saying Node.js
+
+is the most commonly used.
+
+Anyway, it's popular, it's continuing to grow in popularity,
+
+and it is the same JavaScript syntax that you know
+
+and maybe love, or you may not love it,
+
+but you still know it at this point in the course,
+
+assuming you didn't just skip to this section.
+
+So we could have used other languages,
+
+we could have used Python, we could have used Ruby.
+
+What's great about Node,
+
+other than the fact that it's just very popular
+
+and has a great community,
+
+is that you don't have to learn a whole separate language.
+
+Not that that's a bad thing,
+
+and in fact, I encourage you to learn other languages,
+
+but for our sake,
+
+in having a smooth experience
+
+of just learning as much as possible about web development,
+
+it's just easiest for us
+
+to focus on a language that we already know.
+
+And it's a great benefit and a great bonus
+
+that it's already very,
+
+very popular and trendy and, you know,
+
+everybody wants to know it and there's lots of jobs.
+
+So there's a whole bunch of reasons to learn Node
+
+and the different tools that are associated with Node
+
+that we'll be focusing on.
+
+So, hopefully, you're excited about it.
+
+This is kind of a whole new world of development for us.
+
+There's a lot that we just haven't been able to do
+
+with client-side JavaScript in the browser
+
+that we now are going to be able to do.
+
+So, in the next video, I'm gonna quickly talk about
+
+what people actually use Node for,
+
+and then we'll install it and get set up
+
+and we'll start using it.
+
+
+Instructor: Okay, so we've established
+
+that Node is just JavaScript
+
+that runs outside of the browser.
+
+We just run it on our machine,
+
+and because it's not in the browser,
+
+we can do a lot of other stuff that we normally couldn't do.
+
+So in this video,
+
+I wanna talk about what some of those uses are.
+
+So the predominant one
+
+that we care about is this first bullet point,
+
+creating web servers
+
+and writing server-side logic for a full stack application.
+
+So right now without Node, we can write code in the browser
+
+that can request a server, right?
+
+We can request an API with AJAX
+
+and get some information back
+
+and do something in the browser.
+
+But what if I wanted to make my own API?
+
+What if I wanted to work with a database
+
+and connect that database to my web server
+
+and you know, build a full application?
+
+Right now, with just what we know,
+
+JavaScript in the browser, we can't do any of that.
+
+So that's one of the most popular use cases for Node.
+
+There's a framework, a tool,
+
+that's very popular called Express.
+
+We'll be learning this.
+
+Just to give you an idea, though, Node is used by Netflix.
+
+I don't know exactly where they use it these days,
+
+but there's a lot of articles about the topic.
+
+Uber uses it as well, among other technologies.
+
+And here's an interesting one.
+
+NASA uses Node to help keep astronauts safe on space walks.
+
+So apparently, there was an issue on this spacewalk in 2013.
+
+Water was leaking into this astronaut's helmet.
+
+And that's a big problem when you're in a spacesuit,
+
+and you can't just, like, wipe your eyes and all that.
+
+Ooh, wow, "Had trouble breathing."
+
+Anyway, so what happened
+
+after all of that is that NASA decided
+
+to build a more reliable, centralized source of their data
+
+about these EVAs and their space suits.
+
+I think EVA is Extra Vehicular Activity.
+
+So they built this one database using Node.
+
+Set up this one microservice
+
+that contains all the information
+
+from three separate legacy sources into a single service.
+
+Anyway, kind of an interesting case study there.
+
+So that's probably the most common use case for Node,
+
+but it's also used to make command line tools.
+
+We'll be seeing
+
+at least one of those command line tools pretty shortly.
+
+So when I say a command line tool,
+
+I mean actually applications that run in our command line,
+
+where we don't have a traditional user interface,
+
+things like NPM that we'll be learning shortly.
+
+And then native apps,
+
+that's one that's exciting for a lot of people.
+
+We can build applications that run on our machine,
+
+including VS Code, which we know and love at this point.
+
+It's written in JavaScript using Node.
+
+So actually the real VS Code,
+
+the one that we use all the time,
+
+in this course at least,
+
+is a Node application.
+
+It's written in JavaScript,
+
+but we don't run it in the browser, right?
+
+We're running it just as a native application.
+
+In fact, other apps like Slack are written
+
+in exactly the same way.
+
+Slack, a super popular app, is written in JavaScript,
+
+and it runs both in the browser as a web app
+
+and as a native app.
+
+And the way that those two companies build their apps
+
+is using something called Electron.
+
+We're not gonna go into it,
+
+but it is a pretty interesting topic.
+
+It allows you to write JavaScript code to make a single app
+
+that runs both in browsers and as native apps.
+
+So that means with a single code base,
+
+you can have code that will work on Mac,
+
+on Windows machines.
+
+It will work in the browser,
+
+and lots of companies use it as you can see here,
+
+Twitch, WhatsApp, VS Code.
+
+Anyway, it's pretty cool that we can write JavaScript
+
+to make native applications.
+
+That's something we could never do before.
+
+Everything had to be in the browser.
+
+And then something else that's kinda interesting is games,
+
+video games can be built with Node.
+
+Now it's not that common
+
+because there are lots of game development frameworks,
+
+things like Unity,
+
+and those tend to attract a lot more game developers.
+
+But just as a interesting example,
+
+there's this game called "CrossCode"
+
+that, a couple of years ago, really, really hit it off
+
+and was a pretty huge success.
+
+It started, I think, as a browser-based game
+
+and you can actually play the demo in your browser.
+
+It is written in JavaScript,
+
+but it's also a native app you can install with Steam.
+
+And it's since been ported to Switch
+
+and PlayStation and Xbox.
+
+And this game has sold hundreds of thousands of copies,
+
+and I don't know how big the team was that made it.
+
+I'm sure we can find that out.
+
+But yeah, the team did very well, let's put it that way,
+
+from building a game with Node.js and with JavaScript.
+
+So maybe Node is not the top choice for building games,
+
+but this is a pretty cool success story.
+
+All right, so there's a lot of stuff we can do
+
+with Node I didn't mention.
+
+You know, you can write software for drones.
+
+You can control all sorts of things with Node.
+
+We're not limited to the browser anymore.
+
+So we can do a lot of really interesting things,
+
+but for our purposes,
+
+we care about that first bullet point,
+
+creating web servers with Node,
+
+so that's what we're gonna focus on.
+
+
