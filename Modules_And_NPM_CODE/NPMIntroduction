@@ -1,0 +1,161 @@
+Instructor: So, next up, we get to talk about NPM,
+
+or Node Package Manager.
+
+This is really one of the best parts of working with Node.
+
+When I talk about the Node community,
+
+this is largely what I'm referring to.
+
+NPM is, well, it's really two things.
+
+It is most importantly,
+
+a library of tons and tons of packages.
+
+Basically tools, code that other people have already written
+
+that we can then use and it's all free,
+
+or at least we can use the tools for free.
+
+There actually are, and it's kind of annoying these days,
+
+but if you go to NPM, there is like a Pro level
+
+that you can sign up for.
+
+You do not need that at all.
+
+This is for publishing and creating packages
+
+and having private packages and permissions.
+
+We don't care about that,
+
+we wanna consume packages,
+
+we want to use them.
+
+So, there's this massive library of packages
+
+people have written.
+
+Things like React as an example.
+
+There's a package for React or Express.
+
+There's a package for that,
+
+or silly things like making rainbow text.
+
+There's a package for that.
+
+That's not the one.
+
+Here it is.
+
+This is the one I was thinking of to make rainbow text
+
+in our command line or in the terminal,
+
+there's a package that we can install.
+
+So, that's the first bid of what NPM is.
+
+It's a whole bunch of packages that exists.
+
+They're registered in basically a standardized place,
+
+a registry, and then there's a second piece,
+
+a command line tool called NPM as well
+
+that we can use to easily install and manage those packages
+
+so that I can very, very quickly say,
+
+I want to use rainbow text in this project I'm working on,
+
+or I want to use Express here,
+
+or I want to use Express version,
+
+I'm making this up, 5.2,
+
+or whatever the number is in this project,
+
+and then in this project I wanna use 3.5.
+
+So, NPM is both of those things at once,
+
+and this is really
+
+one of the best parts of working with Node,
+
+we can very easily go and get a whole bunch of packages
+
+and download them without having to lift a finger.
+
+We can just type a simple command in our command line.
+
+In fact, you'll see in your terminal here,
+
+if I just expand this, if you installed Node,
+
+we already have NPM here.
+
+If I type NPM on its own,
+
+as long as you don't see command not found,
+
+like I do when I just type gibberish, we are good to go.
+
+It comes with Node,
+
+and you'll see there are these different commands
+
+that we can run with NPM.
+
+Each one of these is something
+
+where we can follow up NPM with a command.
+
+So, in the next few videos,
+
+we'll explore some of these commands
+
+and we'll use them to install packages,
+
+starting with pretty simple, silly things,
+
+and then up to really useful,
+
+important stuff like Express,
+
+and packages that help us work with databases,
+
+and a whole bunch of other things.
+
+So, remember, a package is just code
+
+somebody else has written.
+
+Generally, it's written in a way that makes it easy
+
+for us to integrate it into our own project.
+
+NPM is the standardized repository for those Node packages.
+
+It stands for Node Package Manager,
+
+and Node itself comes with a NPM command line tool
+
+that we will use to easily install
+
+and manage those packages,
+
+so that's all coming up.
+
+

@@ -1,0 +1,536 @@
+
+1. Instructions for using franc version 5.0.0 like in the video, so you can follow along with Colt directly:
+To install and use the older version of franc — in the terminal, in the same directory as your code file, you can run the npm install command with this syntax to install franc version 5.0.0 specifically:
+
+npm install franc@5.0.0
+
+After you install franc version 5.0.0, you will be able to use the require() function as shown in the upcoming video lecture.
+
+2. Instructions for using the updated franc version that works with the import statement instead:
+First, make sure to install the latest version of the franc module with this npm install command:
+
+npm install franc@latest
+
+Next, for this ES6 module system to work, we need to add a new entry to our package.json file. You will need to open up the package.json file in the project folder and add the
+"type": "module" entry to it.
+
+Your package.json file should look like this (copy-paste it from here):
+
+{
+  "type": "module",
+  "name": "langguessr",
+  "version": "2.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "franc": "^6.1.0",
+    "langs": "^2.0.0"
+  }
+}
+This will enable us to use the ES6 modules system, so then instead of using the require() function in our index.js code, we need to switch to using the import statement.
+
+Therefore, your index.js file should look like this:
+
+// REMEMBER TO RUN "npm install" in your terminal (in the same directory as this file)
+import { franc } from 'franc';
+import langs from 'langs';
+import colors from 'colors';
+ 
+const input = process.argv[2];
+const langCode = franc(input);
+if (langCode === 'und') {
+  console.log(colors.red("SORRY, COULDN'T FIGURE IT OUT! TRY WITH MORE SAMPLE TEXT!"));
+} else {
+  const language = langs.where("3", langCode);
+  console.log(colors.green(`Our best guess is: ${language.name}`));
+}
+Please note that after switching to ES6 modules, you cannot use require() anymore. We had to use the import statement for importing the other modules as well.
+
+And again: make sure not to use the import statement while following any other future course lectures (after the Language Guesser Challenge), but instead use require() just as Colt does — review the instructions about it towards the top of this written lecture.
+
+ADDITIONAL NOTE (A SMALL BUG FIX FOR THE LANGUAGE GUESSER):
+There is a specific edge case that we noticed students reporting, where you may sometimes see this error when you run the code: TypeError: Cannot read properties of undefined (reading 'name')
+
+That error gets triggered when the program tries to read the language.name property, when the language is set to undefined. This can happen if the langs package is unable to find a language with the provided 3-letter code from franc.
+
+To handle this error, you can add a check to make sure the language object is defined before attempting to access its properties (i.e. check if the langs package was able to find a language with the provided 3-letter code from franc).
+
+import { franc } from 'franc';
+import langs from 'langs';
+import colors from 'colors';
+ 
+const input = process.argv[2];
+const langCode = franc(input);
+if (langCode === 'und') {
+    console.log(colors.red("SORRY, COULDN'T FIGURE IT OUT! TRY WITH MORE SAMPLE TEXT!"));
+} else {
+    const language = langs.where("3", langCode);
+    if (language) {
+        console.log(colors.green(`Our best guess is: ${language.name}`));
+    } else {
+        console.log(colors.red(`SORRY, COULDN'T FIND A LANGUAGE FOR CODE: ${langCode}`));
+    }
+}
+With this update, the program should now display a proper error message when it is unable to find a language for the provided code, instead of throwing an unhandled TypeError. Note: this bug fix will work whether you are using the import statement or the require() function approach in this exercise.
+
+-: So next up we're going to end with
+
+what I think is kind of a fun exercise,
+
+little tiny project where you are going
+
+to combine a couple of different libraries
+
+or different packages to make a language detector.
+
+So here's how it works.
+
+We are going to run our file in this case,
+
+I called it 'index.js',
+
+and it's going to output its best guess
+
+for what language this is.
+
+And this one is Danish and we get Danish.
+
+Now, this is something that would be very, very
+
+difficult for us to implement.
+
+We have to talk about natural language processing
+
+and a whole bunch of stuff that we just,
+
+I mean I couldn't even teach,
+
+let alone understand very well myself.
+
+Anyway, we were using a package to help us.
+
+It's called 'Frank' or Franc.
+
+And it's a language or it's a language,
+
+it's a tool that we install with 'npm'.
+
+And what I'd like you to do is actually try
+
+and do this on your own.
+
+Read the documentation, you can find the links
+
+for these packages you'll need.
+
+So read the documentation and figure out how it works.
+
+How do we pass in some piece of text
+
+and get some language out?
+
+What I'll tell you ahead of time is
+
+that it does not give you the language name.
+
+Instead it gives you a language code, an ISO language code.
+
+That looks like, as an example, let's see if I can find one.
+
+Like these right here. 'por', 'src', 'glg'.
+
+They are three letter codes,
+
+so you'll need a second library, second package.
+
+This one is called Langs.
+
+So I did some of the research for you.
+
+I had to play around with this.
+
+I guess there's a lot of language specifications
+
+or different codes.
+
+There's ISO 639-1, 639-2, and 639-3 for three characters,
+
+that's what we want.
+
+Anyway, what I want you to try and do at least
+
+is take some argument from the command line,
+
+like here's another example with Spanish.
+
+You'll take that argument, hopefully you remember how to do
+
+that with process 'argv', take that,
+
+pass it through to Franc,
+
+get a language code out
+
+and then you'll need to take that three letter code,
+
+pass it into this package and get out some sort of object.
+
+And from that object get out the name of the language.
+
+So there's a couple of steps you'll need to do.
+
+And just as a heads up with this one,
+
+I'll just tell you right now this is the method you want,
+
+langs.where
+
+and then we'll pass in the string '3'.
+
+It's ISO 3 or 693-3. I can't even keep it straight.
+
+Anyways, you want this and then we'll pass in the language
+
+code that we got back from Franc, the package.
+
+So let's do one more example.
+
+How about, bonjour je suis colt?
+
+Let's see if that's enough.
+
+And we get French.
+
+Now, if we do something super short like
+
+I don't know or something that's not even a language,
+
+I have some simple error handling.
+
+I also color coded things, so that's a third package.
+
+That colors package, you don't need to do that,
+
+but do have some error handling
+
+because sometimes it needs more information
+
+and you'll get an error from that Franc library.
+
+Alright, so give it a shot if you'd like.
+
+This is really an exercise in installing packages,
+
+but mainly reading the docs and playing with different tools
+
+and combining them like little Lego pieces
+
+to make something bigger, although nothing very big.
+
+Okay, so here we go.
+
+I'm going to try doing this from scratch.
+
+So I have an empty directory so you can see here.
+
+And I'm going to, let's do 'npm init'
+
+to get my package.json.
+
+Just hit enter a couple of times, that's fine.
+
+And then I'll install the packages I know that we want.
+
+So 'npm i' and I think it's called Franc,
+
+just double check.
+
+And this is just langs I believe.
+
+Okay, so I'll just separate them by spaces
+
+and that will install both of them.
+
+Let's take a look at the package.json.
+
+Okay, Franc and langs.
+
+And then I'll create my index.js
+
+or maybe, yeah, I'll do index.js.
+
+And in that file I'm gonna start by figuring out
+
+how do I use this Franc package?
+
+So I know I need to require it.
+
+Const Franc equals require,
+
+I don't know, is it supposed to be Franc like French?
+
+I don't know. Okay, so I've required it.
+
+Now how do I use it? Well, it's super simple.
+
+It's just a function that I've required.
+
+So now I need to execute that function
+
+and pass in some text.
+
+So let's try it.
+
+Let's just copy one of these as an example.
+
+I think this, is this Afrikaans? 'Afrikaans'?
+
+Let's see, let's print that out.
+
+Console.log.
+
+Just make sure it works when I run this.
+
+Okay, we get 'afr'.
+
+Now I need to figure out how to turn that into a code,
+
+or sorry, take that code and turn it into a language,
+
+with a name that I can print out.
+
+So this is where the second package comes in, called Langs.
+
+I'm going to require that.
+
+Const langs equals require langs.
+
+And then the method we want is langs.where,
+
+and you can read the docs about how this works,
+
+but we want langs.where, we'll pass in three
+
+because that's the version of the spec that Franc uses,
+
+it gives us these ISO, it says it's somewhere here.
+
+Where are you?
+
+There it is.
+
+ISO 69...
+
+639-3 codes.
+
+Geez, you'd think they can give them nicer names,
+
+but so we want this, langs.where three.
+
+And then we'll pass in whatever we got back
+
+from this line right here.
+
+So I'm gonna save that to a variable.
+
+Let's call this code or lang code equals that
+
+and then we'll pass that in here
+
+and hopefully if we print this out,
+
+we'll call this const language
+
+or console.log language
+
+and let's see what we end up with.
+
+So a lot of this is just guessing and checking.
+
+Undefined.
+
+Oh, well that's why,
+
+I don't know why I passed langs in.
+
+I'm supposed to pass in the code. Let's try that.
+
+Okay, so here we are.
+
+This is the object we get back from langs.where,
+
+and what we really want is name, it's an object.
+
+So console.log, language.name,
+
+and there we are Afrikaans.
+
+So here's another example, let's see what we get out here.
+
+Norwegian. So that's what this language was.
+
+And yeah, that's pretty much it for the basics.
+
+Now, let's use the command line argument.
+
+So instead of providing it a hard coded string here,
+
+let's get it from user input.
+
+So we'll go with const input equals,
+
+and then we'll just go for process.argv of index two.
+
+If you remember,
+
+we want the third element
+
+and then we'll pass that into Franc
+
+and let's try that.
+
+So over here, let me just clear this,
+
+node index.js and then I'll pass in.
+
+There we go. We got Norwegian.
+
+Let's do one more example.
+
+Index.js.
+
+We'll do French again, bonjour je suis colt,
+
+and we get French.
+
+Now if we try something that is too short
+
+or it can't figure out, we do have an error.
+
+So let's just do a simple tri catch.
+
+It looks like the error is just coming from this part here.
+
+If it can't find the language code from the docs,
+
+it's going to give us.
+
+We don't even really need a tri catch, I don't think.
+
+If it can't find the language, where's that line here?
+
+I mentioned it somewhere.
+
+Here we are, 'und' for,
+
+what does that stand for?
+
+Undetermined.
+
+So if we get 'und', it can't figure it out.
+
+So we can just do something like if
+
+lang code
+
+equals 'und',
+
+we'll do a console.log.
+
+Sorry,
+
+couldn't figure it out.
+
+Try with more sample text or something.
+
+Okay, otherwise we'll do this.
+
+Now let's try it again.
+
+Sorry, couldn't figure it out.
+
+Try with more sample text.
+
+But if we try one that does work, we get French.
+
+And let's just spruce this up a tiny bit
+
+and say with a string template, literal language.name.
+
+And then in front of that, let's do something like,
+
+whoops, that should be a dollar sign.
+
+Our best guess is:
+
+French.
+
+Okay, lastly, let's color code it.
+
+So I'm going to install that package.
+
+We've already used 'npm i' colors,
+
+require that.
+
+Just like that.
+
+And if you don't remember,
+
+you could look at the docs, but it's very simple to use.
+
+It extends strings so we don't even have to call functions.
+
+So we can just do at the end of a string,
+
+'.green' or '.red'.
+
+So let's verify that that works.
+
+No, I didn't mean to reinstall it.
+
+There we go.
+
+Our best guess is French versus,
+
+sorry, couldn't figure it out.
+
+Try with more sample text.
+
+Alright, kind of cool, somewhat fun.
+
+Just a illustration of what we can do through 'npm'
+
+and relying on code other people have written for us
+
+with just 12 lines of code
+
+and you know three of those are just requiring packages
+
+and two of them are printing out something to the console.
+
+But just with those few lines of code, we're able
+
+to put something kind of interesting together.
+
+Alright, so that's just how we're ending this little section
+
+on 'npm' and packages
+
+and the package.json file,
+
+which of course is up to date here.
+
+Colors, franc and langs.
+
+Next up, we're going to enter the world of express.
+
+We're gonna spend a lot of time talking about
+
+one special package that's coming up.

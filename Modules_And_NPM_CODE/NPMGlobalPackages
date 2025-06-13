@@ -1,0 +1,365 @@
+<!-- 
+kunj5@DESKTOP-6GU8P5E MINGW64 ~/OneDRive/YUKTI PROGRams/Node/Modules_And_NPM_CODE
+$ npm i -g cowsay
+
+added 41 packages in 965ms
+
+3 packages are looking for funding
+  run `npm fund` for details
+
+kunj5@DESKTOP-6GU8P5E MINGW64 ~/OneDRive/YUKTI PROGRams/Node/Modules_And_NPM_CODE
+$ cowsay hellooooooo
+ _____________
+< hellooooooo >
+ -------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+kunj5@DESKTOP-6GU8P5E MINGW64 ~/OneDRive/YUKTI PROGRams/Node/Modules_And_NPM_CODE
+$ cowsay moooooooooo
+ _____________
+< moooooooooo >
+ -------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+kunj5@DESKTOP-6GU8P5E MINGW64 ~/OneDRive/YUKTI PROGRams/Node/Modules_And_NPM_CODE
+$ cowsay moooooooooo -s
+ _____________
+< moooooooooo >
+ -------------
+        \   ^__^
+         \  (**)\_______
+            (__)\       )\/\
+             U  ||----w |
+                ||     ||
+
+kunj5@DESKTOP-6GU8P5E MINGW64 ~/OneDRive/YUKTI PROGRams/Node/Modules_And_NPM_CODE
+$ cowsay moooooooooo -b
+ _____________
+< moooooooooo >
+ -------------
+        \   ^__^
+         \  (==)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+kunj5@DESKTOP-6GU8P5E MINGW64 ~/OneDRive/YUKTI PROGRams/Node/Modules_And_NPM_CODE
+$ cd Jokester/
+
+kunj5@DESKTOP-6GU8P5E MINGW64 ~/OneDRive/YUKTI PROGRams/Node/Modules_And_NPM_CODE/Jokester
+$ node index.js
+node:internal/modules/cjs/loader:1078
+  throw err;
+  ^
+
+Error: Cannot find module 'cowsay'
+Require stack:
+- C:\Users\kunj5\OneDRive\YUKTI PROGRams\Node\Modules_And_NPM_CODE\Jokester\inde
+x.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1075:15)
+    at Module._load (node:internal/modules/cjs/loader:920:27)
+    at Module.require (node:internal/modules/cjs/loader:1141:19)
+    at require (node:internal/modules/cjs/helpers:110:18)
+    at Object.<anonymous> (C:\Users\kunj5\OneDRive\YUKTI PROGRams\Node\Modules_A
+nd_NPM_CODE\Jokester\index.js:12:17)
+    at Module._compile (node:internal/modules/cjs/loader:1254:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1308:10)
+    at Module.load (node:internal/modules/cjs/loader:1117:32)
+    at Module._load (node:internal/modules/cjs/loader:958:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_ma
+in:81:12) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [
+    'C:\\Users\\kunj5\\OneDRive\\YUKTI PROGRams\\Node\\Modules_And_NPM_CODE\\Jok
+ester\\index.js'
+  ]
+}
+
+Node.js v18.16.0
+
+kunj5@DESKTOP-6GU8P5E MINGW64 ~/OneDRive/YUKTI PROGRams/Node/Modules_And_NPM_CODE/Jokester
+$ npm link cowsay
+npm ERR! code 1
+npm ERR! path C:\Users\kunj5\AppData\Roaming\npm\node_modules\cowsay
+npm ERR! command failed
+npm ERR! command C:\WINDOWS\system32\cmd.exe /d /s /c rollup -c
+npm ERR! 'rollup' is not recognized as an internal or external command,
+npm ERR! operable program or batch file.
+
+npm ERR! A complete log of this run can be found in: C:\Users\kunj5\AppData\Local\npm-cache\_logs\2025-05-08T08_38_57_475Z-debug-0.log
+
+kunj5@DESKTOP-6GU8P5E MINGW64 ~/OneDRive/YUKTI PROGRams/Node/Modules_And_NPM_CODE/Jokester
+$ node index.js
+I burned 2000 calories today, I left my food in the oven for too long.
+
+Instructor: In this video, I wanna quickly talk about
+
+local versus global installation of packages.
+
+So when we run npm-install, like we did earlier right here,
+
+it's installing the colors package
+
+for use in this one directory.
+
+It's in node modules here.
+
+I cannot require it, at least I can't easily require it,
+
+from outside of this folder somewhere else.
+
+For example, in this app.js,
+
+if I just wanted to require
+
+const colors equals require colors,
+
+I'm not gonna have a good time using that.
+
+So if I back out into that directory
+
+and I run this app.js,
+
+"Cannot find module colors."
+
+It's looking for it,
+
+but it's going to look in node modules in this directory.
+
+And there isn't a node modules.
+
+So, what we've done is installed it locally
+
+to this one directory.
+
+And this is really common and it's what we want
+
+most of the time for a bunch of reasons.
+
+One, we don't want to, you know, have access
+
+to every single package ever inside of every single file
+
+because we may want different versions
+
+for different projects we're working on.
+
+Colors is a simple, probably stupid example,
+
+but if we're working with React or Express,
+
+there are significant differences
+
+between different versions
+
+where an older code base is not gonna work
+
+if you're using the newest version of Express or of React.
+
+So we want to be able to manage which version we're using.
+
+And that's actually a topic,
+
+that's where this package.json thing comes in
+
+and we'll talk about that.
+
+But for now, I do want you to know
+
+you actually can install packages globally,
+
+and sometimes you may see documentation
+
+telling you to do this.
+
+An example is (laughs) this package called cowsay.
+
+Cowsay is kind of a famous, it's not a node thing,
+
+it's a famous programming, I guess, joke,
+
+a configurable talking cow. (laughs)
+
+And it's a command that we can actually run
+
+from the command line, cowsay,
+
+and then some information that we want it to say afterwards.
+
+So, this is something that we can install globally
+
+if we want to be able to use it everywhere.
+
+It's stupid, but to install something globally,
+
+we add the -g flag.
+
+So I'm gonna do that here.
+
+npm install, or i -g cowsay.
+
+Oop! And now it's telling me (sighs) well, that's annoying,
+
+"Permission issue,"
+
+because it doesn't have write access
+
+to usr/local/lib/node modules.
+
+All right, well, it's probably good that this came up
+
+as annoying as it is because you may see this, as well.
+
+What it's demonstrating to us is actually that it's trying
+
+to add to the node modules directory,
+
+basically at the highest level of my machine,
+
+this thing usr/local/lib/node modules.
+
+So this is the node modules directory for my entire account,
+
+for my entire user here,
+
+rather than in a single sub-directory,
+
+like a project directory.
+
+But it's saying it doesn't have write permission.
+
+So, I can change that.
+
+And I'm being very transparent here,
+
+whenever I run into this issue,
+
+I know I'm gonna have to use a command called chown change,
+
+I think it's change ownership,
+
+and I just Google the error message
+
+because I hate dealing with these things.
+
+So I wanna be very transparent about this.
+
+Here's the command I'm going to run
+
+to fix this sudo chown -R $USER
+
+and then /usr/local/lib/node modules.
+
+So, this is going to change the permission on that file
+
+or on this directory, node modules.
+
+It is gonna ask me for my password.
+
+Okay, so that worked.
+
+And if you are following along and it doesn't work,
+
+it really does not matter.
+
+This is purely a demo of installing something globally.
+
+But I do have this command now, cowsay,
+
+that actually works in my command line.
+
+It's like a new command I've defined through this package.
+
+Anywhere I can use this, doesn't matter what folder I'm in,
+
+and if I just type cowsay it shows me... (gasps)
+
+Oh, interesting.
+
+There's different modes that we can use.
+
+Stoned Mode, Borg Mode,
+
+but then I can pass in some text like helloooo.
+
+And that's what my cow says.
+
+Let's look at Stoner Mode.
+
+That's a Stoner Mode, the tongue's out.
+
+How about Borg Mode?
+
+That's our Borg Mode.
+
+All right, so, silly stuff,
+
+but this is a global command that is working.
+
+So, the package now exists,
+
+it's installed globally on my machine
+
+and it gives me this nice command,
+
+but I also, if I wanted to, I could use it in a project,
+
+for example, in Jokester.
+
+Unfortunately, if I do just try and require it,
+
+cowsay equals require, cowsay, I am not going to find it.
+
+If I try running that file, it's gonna complain to me.
+
+There is this thing I can do, which is npm link cowsay,
+
+and now I should be good to go.
+
+That's a way of having access to these global packages
+
+where it's not actually installed locally,
+
+it's just linked to this global package.
+
+Anyway, it's really beyond what we need to care about.
+
+But the main takeaway here is that there is this thing
+
+that we can do for certain packages
+
+where we can install them globally.
+
+And this is often done with tools
+
+that give us new command-line commands
+
+that are command line-based tools.
+
+Otherwise, generally, you want to install everything locally
+
+using npm i or npm-install.
+
+But if you ever see that -g, it stands for global,
+
+and it will install it in the global node package
+
+or node modules directory on your computer.
+
+Okay, moving on.
+
+We've gotta talk about packages.
+
+No, let's try that again.
+
+We need to talk about package.json.
+
+ -->
